@@ -2,6 +2,8 @@ package site.xingchi;
 
 
 import org.junit.Test;
+import site.xingchi.node.Node;
+import site.xingchi.node.ReverseList;
 import site.xingchi.str.LongestCommonPrefix;
 
 /**
@@ -46,10 +48,42 @@ public class AppTest {
     }
 
     @Test
-    public void startWithStr(){
-        String str="xingchi";
-        String str1="xi";
+    public void startWithStr() {
+        String str = "xingchi";
+        String str1 = "xi";
         boolean b = str.startsWith(str1);
         System.out.println(b);
+    }
+
+    /**
+     * @author -->> itcolors <<----
+     * @time 11:31
+     * @description 反转链表测试
+     */
+    @Test
+    public void createList() {
+        ReverseList list = new ReverseList();
+        list.createList(12).createList(13).createList(35);
+        list.printList(list.head);
+    }
+
+    @Test
+    public void reverseList() {
+        ReverseList list = new ReverseList();
+        list.createList(12).createList(13).createList(35);
+        list.printList(list.head);
+        System.out.println();
+        Node node = list.reverseList(list.head);
+        list.printList(node);
+    }
+
+    @Test
+    public void reverseLinkList() {
+        ReverseList list = new ReverseList();
+        list.createList(12).createList(13).createList(35);
+        list.printList(list.head);
+        System.out.println();
+        Node node = list.reverseLinkList(list.head);
+        list.printList(node);
     }
 }
