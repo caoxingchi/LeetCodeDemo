@@ -133,4 +133,38 @@ public class Link {
         return head;
     }
 
+    /**
+     * @author -->> itcolors <<----
+     * @time 15:18
+     * @description 删除倒数第n个节点 并返回头结点
+     */
+    public Node deleteNthFromList(Node head, int n) {
+        if (head == null) {
+            return null;
+        }
+        Node pre = head;
+        Node knext = head;
+        Node newNode = pre;
+        //移动后面的指针 与之保持一致
+        while (head != null && n > 0) {
+            knext = head.next;
+            head = head.next;
+            n--;
+        }
+        if (n > 0) {
+            return newNode;
+        }
+        //两个指针同时移动
+        while (knext != null) {
+            if (knext.next == null) {
+                pre.next = pre.next.next;
+                return newNode;
+            }
+            knext = knext.next;
+            pre = pre.next;
+        }
+        return newNode.next;
+
+    }
+
 }

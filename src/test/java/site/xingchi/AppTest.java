@@ -2,6 +2,7 @@ package site.xingchi;
 
 
 import org.junit.Test;
+import site.xingchi.node.Link;
 import site.xingchi.node.Node;
 import site.xingchi.node.ReverseList;
 import site.xingchi.str.LongestCommonPrefix;
@@ -85,5 +86,17 @@ public class AppTest {
         System.out.println();
         Node node = list.reverseLinkList(list.head);
         list.printList(node);
+    }
+
+    @Test
+    public void deleteList() {
+        Link deleteLink = new Link();
+        deleteLink.createLink(12).createLink(19).createLink(80).createLink(90);
+        deleteLink.printLink(deleteLink.head);
+        System.out.println("==============");
+
+        Node newNode = deleteLink.deleteNthFromList(deleteLink.head, 5);
+        deleteLink.printLink(newNode);
+
     }
 }
